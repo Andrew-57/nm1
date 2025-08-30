@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Task</title>
+  <style>
+    .highlight {
+      border: 2px solid red;
+      background-color: #ffe5e5;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="formHeading">Registration Form</h2>
+  <form id="myForm">
+    <label for="name">Name (mandatory):</label>
+    <input type="text" id="name"><br><br>
+
+    <label for="email">Email (mandatory):</label>
+    <input type="email" id="email"><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age"><br><br>
+
+    <button type="button" onclick="validateForm()">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      // Get elements
+      let nameField = document.getElementById("name");
+      let emailField = document.getElementById("email");
+      let heading = document.getElementById("formHeading");
+      let form = document.getElementById("myForm");
+      let labels = document.getElementsByTagName("label");
+
+      // Reset highlights
+      nameField.classList.remove("highlight");
+      emailField.classList.remove("highlight");
+
+      // Check mandatory fields
+      if (nameField.value.trim() === "") {
+        nameField.classList.add("highlight");
+      }
+      if (emailField.value.trim() === "") {
+        emailField.classList.add("highlight");
+      }
+
+      // Style heading
+      heading.style.color = "blue";
+      heading.style.textAlign = "center";
+      heading.style.textTransform = "uppercase";
+
+      // Style form
+      form.style.border = "2px solid black";
+      form.style.padding = "20px";
+      form.style.width = "300px";
+      form.style.backgroundColor = "#f0f8ff";
+
+      // Make all labels bold
+      for (let i = 0; i < labels.length; i++) {
+        labels[i].style.fontWeight = "bold";
+      }
+    }
+  </script>
+</body>
+</html>
