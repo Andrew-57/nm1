@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Task</title>
+  <style>
+    .required {
+      background-color: lightyellow;
+    }
+    #message {
+      margin-top: 10px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Simple Form</h2>
+  <form id="myForm">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" class="required" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" class="required" required><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form refresh
+
+      // Get values
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+
+      // Show confirmation message
+      document.getElementById("message").innerText = 
+        "✅ Thank you, " + name + "! Your email (" + email + ") has been submitted.";
+
+      // Clear input fields
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+    });
+  </script>
+</body>
+</html>
