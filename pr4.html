@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Highest Marks</title>
+</head>
+<body>
+
+    <h2>Student Highest Marks</h2>
+    <p id="output"></p>
+
+    <script>
+        // Create student object
+        const student = {
+            name: "John Doe",
+            age: 16,
+            marks: {
+                Math: 85,
+                English: 92,
+                Science: 78,
+                History: 88
+            }
+        };
+
+        // Find the subject with the highest marks
+        let highestSubject = "";
+        let highestMarks = -1;
+
+        for (let subject in student.marks) {
+            if (student.marks[subject] > highestMarks) {
+                highestMarks = student.marks[subject];
+                highestSubject = subject;
+            }
+        }
+
+        // Display the result
+        document.getElementById("output").innerHTML = 
+            `Student Name: ${student.name} <br>
+             Age: ${student.age} <br>
+             Highest Marks: ${highestMarks} in ${highestSubject}`;
+    </script>
+
+</body>
+</html>
